@@ -5,19 +5,13 @@ from functools import wraps
 
 app = bottle.Bottle()
 
-@app.route('/hive')
-def hive():
-    '''
-    Returns the sample html page with hive
-    '''
-    return bottle.static_file("hive.html", root='')
 
-@app.route('/hive.js')
-def hive_js():
+@app.route('/static/<filename:path>')
+def hive_js(filename):
     '''
     Returns the js file for hive
     '''
-    return bottle.static_file("hive.js", root="")
+    return bottle.static_file(filename, root="static")
 
 
 ##################################################
