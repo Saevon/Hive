@@ -1,7 +1,5 @@
 import bottle
 
-from functools import wraps
-
 
 app = bottle.Bottle()
 
