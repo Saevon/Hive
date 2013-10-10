@@ -1,5 +1,5 @@
-.hex:before {
-    content: " ";
+.hex::before {
+    content: "";
 
     position: absolute;
     top: -30px;
@@ -12,7 +12,6 @@
     border-left: 52px solid transparent;
     border-right: 52px solid transparent;
 }
-
 .hex {
     position: relative;
 
@@ -20,10 +19,8 @@
     height: 60px;
 
     background-color: #6C6;
-    text-align: center;
 }
-
-.hex:after {
+.hex::after {
     content: "";
 
     position: absolute;
@@ -39,71 +36,72 @@
 }
 
 
-.hex.tile:before {
-    border-bottom-color: white;
+/* General positioning */
+.hive-wrapper {
+    position: absolute;
+    top: 30px;
 }
-.hex.tile {
-    border-color: white;
-}
-.hex.tile {
-    border-top-color: white;
-}
-
 .hex-row {
-    clear: left;
     height: 190px;
-}
-.hex.even {
-    margin-top: 95px;
 }
 .hex {
     float: left;
     margin-right: -50px;
-    margin-bottom: -50px;
 }
-.invisible {
-    visibility: hidden;
-}
-
-
-/*
-Adds perspective and rotations
-*/
-.hive-wrapper {
-    /* currently disabled to ease in clicking */
-    /*
-    -webkit-perspective: 1000;
-    perspective: 1000;
-    */
-    position: absolute;
-    top: 30px;
-}
-
-.hex-board {
-    /*
-    -webkit-transform: rotateX(45deg) rotateZ(30deg);
-    -o-transform: rotateX(45deg) rotateZ(30deg);
-    -ms-transform: rotateX(45deg) rotateZ(30deg);
-    -moz-transform: rotateX(45deg) rotateZ(30deg);
-    transform: rotateX(45deg) rotateZ(30deg);
-    */
+.hex.even {
+    margin-top: 95px;
 }
 
 .bug-image {
     width: 104px;
     height: 104px;
-    z-index: 40;
+
+    z-index: 10;
+
     position: absolute;
     top: -22px;
     left: 0;
+}
 
-    /*
+/* Invalid hex tiles that are there for positioning */
+.invisible {
+    visibility: hidden;
+}
+
+/* Color for valid moves */
+.allowed {
+    background-color: lightblue;
+}
+.allowed::before {
+    border-bottom-color: lightblue;
+}
+.allowed::after {
+    border-top-color: lightblue;
+}
+
+
+/**
+ * Perspective transformations
+**/
+.hive-wrapper {
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+
+.hex-board {
+    -webkit-transform: rotateX(45deg) rotateZ(30deg);
+    -o-transform: rotateX(45deg) rotateZ(30deg);
+    -ms-transform: rotateX(45deg) rotateZ(30deg);
+    -moz-transform: rotateX(45deg) rotateZ(30deg);
+    transform: rotateX(45deg) rotateZ(30deg);
+}
+
+.bug-image {
     -webkit-transform: rotateZ(-30deg);
     -o-transform: rotateZ(-30deg);
     -ms-transform: rotateZ(-30deg);
     -moz-transform: rotateZ(-30deg);
     transform: rotateZ(-30deg);
-    */
 }
 
 
