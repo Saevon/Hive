@@ -1,26 +1,38 @@
 .hex:before {
     content: " ";
-    width: 0; height: 0;
+
+    position: absolute;
+    top: -30px;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
     border-bottom: 30px solid #6C6;
     border-left: 52px solid transparent;
     border-right: 52px solid transparent;
-    position: absolute;
-    top: -30px;
 }
 
 .hex {
-    margin-top: 30px;
+    position: relative;
+
     width: 104px;
     height: 60px;
+
     background-color: #6C6;
-    position: relative;
+    text-align: center;
 }
 
 .hex:after {
     content: "";
-    width: 0;
+
     position: absolute;
     bottom: -30px;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
     border-top: 30px solid #6C6;
     border-left: 52px solid transparent;
     border-right: 52px solid transparent;
@@ -39,14 +51,18 @@
 
 .hex-row {
     clear: left;
+    height: 190px;
 }
 .hex.even {
-    margin-top: 125px;
+    margin-top: 95px;
 }
 .hex {
     float: left;
     margin-right: -50px;
     margin-bottom: -50px;
+}
+.invisible {
+    visibility: hidden;
 }
 
 
@@ -54,22 +70,33 @@
 Adds perspective and rotations
 */
 .hive-wrapper {
-    -webkit-perspective: 1000;
+    /* currently disabled to ease in clicking */
+/*    -webkit-perspective: 1000;
     perspective: 1000;
-
-    /*
-    Currently hardcoded, needs centering
-    */
+*/
     position: absolute;
-    top: 100px;
-    left: 150px;
 }
 .hex-board {
-    -webkit-transform: rotateX(55deg) rotateZ(60deg);
-    -o-transform: rotateX(55deg) rotateZ(60deg);
-    -ms-transform: rotateX(55deg) rotateZ(60deg);
-    -moz-transform: rotateX(55deg) rotateZ(60deg);
-    transform: rotateX(55deg) rotateZ(60deg);
+    -webkit-transform: rotateX(45deg) rotateZ(30deg);
+    -o-transform: rotateX(45deg) rotateZ(30deg);
+    -ms-transform: rotateX(45deg) rotateZ(30deg);
+    -moz-transform: rotateX(45deg) rotateZ(30deg);
+    transform: rotateX(45deg) rotateZ(30deg);
+}
+
+.bug-image {
+    width: 104px;
+    height: 104px;
+    z-index: 40;
+    position: absolute;
+    top: -20px;
+    left: 0;
+
+    -webkit-transform: rotateZ(-30deg);
+    -o-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    -moz-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
 }
 
 
