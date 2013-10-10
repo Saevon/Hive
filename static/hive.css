@@ -71,17 +71,22 @@ Adds perspective and rotations
 */
 .hive-wrapper {
     /* currently disabled to ease in clicking */
-/*    -webkit-perspective: 1000;
+    /*
+    -webkit-perspective: 1000;
     perspective: 1000;
-*/
+    */
     position: absolute;
+    top: 30px;
 }
+
 .hex-board {
+    /*
     -webkit-transform: rotateX(45deg) rotateZ(30deg);
     -o-transform: rotateX(45deg) rotateZ(30deg);
     -ms-transform: rotateX(45deg) rotateZ(30deg);
     -moz-transform: rotateX(45deg) rotateZ(30deg);
     transform: rotateX(45deg) rotateZ(30deg);
+    */
 }
 
 .bug-image {
@@ -89,14 +94,16 @@ Adds perspective and rotations
     height: 104px;
     z-index: 40;
     position: absolute;
-    top: -20px;
+    top: -22px;
     left: 0;
 
+    /*
     -webkit-transform: rotateZ(-30deg);
     -o-transform: rotateZ(-30deg);
     -ms-transform: rotateZ(-30deg);
     -moz-transform: rotateZ(-30deg);
     transform: rotateZ(-30deg);
+    */
 }
 
 
