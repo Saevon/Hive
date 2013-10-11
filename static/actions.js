@@ -1,4 +1,16 @@
 /*
+ * A mapping from bug type to the image for it
+ */
+var bug_image_map = {
+    'ant': '/img/raw_ant.png',
+    'beetle': '/img/raw_beetle.png',
+    'grasshopper': '/img/raw_grasshopper.png',
+    'spider': '/img/raw_spider.png',
+    'queen': '/img/raw_tribal_queen.png'
+};
+
+
+/*
  * Generates the wrapper for the entire grid
  */
 function gen_wrapper_tmpl() {
