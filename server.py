@@ -4,7 +4,7 @@ import bottle
 app = bottle.Bottle()
 
 
-@app.route('/static/<filename:path>')
+@app.route('/<filename:path>')
 def hive_js(filename):
     '''
     Returns the js file for hive
