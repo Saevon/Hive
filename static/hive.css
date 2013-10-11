@@ -42,6 +42,17 @@
 
 
 /* General positioning */
+.unused {
+    position: absolute;
+    top: 35px;
+    right: 60px;
+
+    -webkit-transform: scale(0.5, 0.5);
+    -o-transform: scale(0.5, 0.5);
+    -ms-transform: scale(0.5, 0.5);
+    -moz-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+}
 .hive-wrapper {
     position: absolute;
     top: 30px;
