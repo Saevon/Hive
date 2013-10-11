@@ -112,6 +112,8 @@
     transform: rotateX(45deg) rotateZ(30deg);
 }
 
+/* Bug rotation is apparantly better facing the corner
+   Enabling this makes them face the flat edge instead (sort of)
 .bug-image {
     -webkit-transform: rotateZ(-30deg);
     -o-transform: rotateZ(-30deg);
@@ -119,5 +121,6 @@
     -moz-transform: rotateZ(-30deg);
     transform: rotateZ(-30deg);
 }
+*/
 
 
