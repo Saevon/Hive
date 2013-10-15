@@ -41,6 +41,46 @@
 }
 
 
+/* different hex colors */
+.hex.allowed {
+    background-color: lightblue;
+    border-top-color: lightblue;
+    border-bottom-color: lightblue;
+}
+.hex.allowed::before {
+    border-bottom-color: lightblue;
+}
+.hex.allowed::after {
+    border-top-color: lightblue;
+}
+.hex.white {
+    background-color: beige;
+    border-top-color: beige;
+    border-bottom-color: beige;
+}
+.hex.white::before {
+    border-bottom-color: beige;
+}
+.hex.white::after {
+    border-top-color: beige;
+}
+
+.hex.black {
+    background-color: black;
+    border-top-color: black;
+    border-bottom-color: black;
+}
+.hex.black::before {
+    border-bottom-color: black;
+}
+.hex.black::after {
+    border-top-color: black;
+}
+
+
+
+
+
 /* General positioning */
 .unused {
     position: absolute;
@@ -74,21 +114,14 @@
     top: -22px;
     left: 0;
 }
+.hex.black .bug-image {
+   filter: invert(100%);
+   -webkit-filter: invert(100%);
+}
 
 /* Invalid hex tiles that are there for positioning */
 .invisible {
     visibility: hidden;
-}
-
-/* Color for valid moves */
-.allowed {
-    background-color: lightblue;
-}
-.allowed::before {
-    border-bottom-color: lightblue;
-}
-.allowed::after {
-    border-top-color: lightblue;
 }
 
 
