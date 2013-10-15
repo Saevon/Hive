@@ -13,15 +13,19 @@ var bug_image_map = {
 /*
  * Generates the wrapper for the entire grid
  */
-function gen_wrapper_tmpl() {
-    return $('<div class="hive-wrapper"><div class="hex-board">');
+function gen_base() {
+    var tmpl = $('<div class="hive-wrapper"><div class="hex-board"></div><div class="unused"></div></div>');
+    $('body').append(tmpl);
 }
 
 /*
- * Generates the wrapper for the unused tiles
+ * Returns the wrappers for the two board wrappers
  */
-function gen_unused_tmpl() {
-    return $('<div class="unused">');
+function get_board() {
+    return $('hex-board').empty();
+}
+function get_unused() {
+    return $('.unused').empty();
 }
 
 /*
@@ -59,6 +63,8 @@ function add_tile(row, tile) {
         hex.addClass('allowed');
     }
 
+    // TODO: generate the stack
+
     // Some tiles are actual bugs
     if (tile.is_bug()) {
         hex.addClass('bug');
@@ -80,14 +86,13 @@ function add_tile(row, tile) {
  * Draws the hex grid unto the screen
  */
 function draw(grid) {
-    var base_tmpl = $('<div class="board">');
-    base_tmpl.append(gen_wrapper_tmpl());
+    var base = get_board();
 
     // First we generate the grid
     for (var i in grid.rows) {
         var row = grid.rows[i];
 
-        var row_tmpl = add_row(base_tmpl, i % 2 === 0);
+        var row_tmpl = add_row(base, i % 2 === 0);
 
         for (var j in row) {
             var tile = row[i];
@@ -97,23 +102,21 @@ function draw(grid) {
     }
 
     // Add the unused tiles
-    var unused_tmpl = gen_unused_tmpl();
-    base_tmpl.append(unused_tmpl);
+    var unused_tmpl = get_unused();
 
     for (var t in grid.unused) {
         var u_tile = grid.unused[t];
 
         add_tile(unused_tmpl, u_tile);
     }
-
-    // finally replace the old content
-    $('body').empty().append(base_tmpl);
 }
 
 
 
 // Controllers
 $(function() {
+    gen_base();
+
     var grid = new Grid();
     grid.set_view(draw);
 
