@@ -93,7 +93,31 @@ function Board() {
         var range = this.get_range();
 
         // TODO: Create a grid from this
-        var grid = null;
+        var grid = {
+            rows: [],
+            // TODO: add the unused tiles
+            unused: []
+        };
+
+        var is_even = true;
+        var ir = 0;
+        var iq = 0;
+        for (var i=0; i < range.height; i++) {
+            var row = [];
+            for (var q=range.left; q <= range.right; q++) {
+                row.push(this.get_tile(q + qr, range.top + ir));
+            }
+            grid.rows.push(row);
+
+            // The change in height goes r + 2, q + 1 for every
+            // 2 rows, thus we need to alternate the change
+            ir++;
+            if (!is_even) {
+                iq--;
+            }
+
+            is_even = !is_even;
+        }
 
         // Tell the view that the grid has been updated
         this._callback(grid);
