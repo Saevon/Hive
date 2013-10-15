@@ -117,6 +117,7 @@ function draw(grid) {
 // Controllers
 $(function() {
     var grid = new Grid();
+    grid.set_view(draw);
 
     $('.hive-wrapper').on('click', '.bug, .allowed', function(event) {
         var id = $(this).data('id');
@@ -128,6 +129,8 @@ $(function() {
 
         grid.click(id);
     });
+
+
 });
 
 

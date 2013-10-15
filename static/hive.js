@@ -74,16 +74,29 @@ function Board() {
     }
 
     /*
+     * Sets the output function so that the model
+     * can update it
+     */
+    this.set_view = function(callback) {
+        this._callback = callback;
+    };
+
+    /*
      * Draws the current board
      *
      * x, y: pixel center
      */
-    this.draw = function(x, y) {
-        for (var i =0; i < tiles.length; i++) {
-            // DRAW STUFF HERE
-        }
+    this.draw = function() {
+        // TODO: add the movement tiles to the grid
 
-        // ADDMOVEMENT TILES
+        // Get the top left corner
+        var range = this.get_range();
+
+        // TODO: Create a grid from this
+        var grid = null;
+
+        // Tell the view that the grid has been updated
+        this._callback(grid);
     };
 }
 
