@@ -54,14 +54,14 @@
     top: 30px;
 }
 .hex-row {
-    height: 190px;
+    height: 95px;
 }
 .hex {
     float: left;
-    margin-right: -50px;
+    margin-right: 5px;
 }
-.hex.even {
-    margin-top: 95px;
+.hex-row.even {
+    margin-left: 55px;
 }
 
 .bug-image {

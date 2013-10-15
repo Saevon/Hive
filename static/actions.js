@@ -27,8 +27,11 @@ function gen_unused_tmpl() {
 /*
  * Adds a new row wrapper to the given template, returning the row
  */
-function add_row(template) {
+function add_row(template, even) {
     var row = $('<div class="hex-row">');
+    if (even) {
+        row.addClass('even');
+    }
 
     template.find('.hex-board').append(row);
 
@@ -40,11 +43,6 @@ function add_row(template) {
  */
 function add_tile(row, tile) {
     var hex = $('<div class="hex">');
-
-    // Moves even tiles to the second row
-    if (tile.is_even()) {
-        hex.addClass('even');
-    }
 
     // Some tiles go here just to make the grid work
     if (tile.is_padding()) {
@@ -89,7 +87,7 @@ function draw(grid) {
     for (var i in grid.rows) {
         var row = grid.rows[i];
 
-        var row_tmpl = add_row(base_tmpl);
+        var row_tmpl = add_row(base_tmpl, i % 2 === 0);
 
         for (var j in row) {
             var tile = row[i];
