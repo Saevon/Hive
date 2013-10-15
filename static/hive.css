@@ -1,3 +1,6 @@
+/*************************************************
+ * Basic hexagon styles
+**/
 .hex::before {
     content: "";
 
@@ -41,7 +44,9 @@
 }
 
 
-/* different hex colors */
+/*************************************************
+ * Possible hexagon colours
+**/
 .hex.allowed {
     background-color: lightblue;
     border-top-color: lightblue;
@@ -64,6 +69,11 @@
 .hex.white::after {
     border-top-color: beige;
 }
+.hex.white .stack {
+    background: beige;
+    border-color: black;
+    color: black;
+}
 
 .hex.black {
     background-color: black;
@@ -76,12 +86,26 @@
 .hex.black::after {
     border-top-color: black;
 }
+.hex.black .bug-image {
+   filter: invert(100%);
+   -webkit-filter: invert(100%);
+}
+.hex.black .stack {
+    background: black;
+    border-color: beige;
+    color: beige;
+}
+
+/* Invalid hex tiles that are there for positioning */
+.invisible {
+    visibility: hidden;
+}
 
 
 
-
-
-/* General positioning */
+/*************************************************
+ * General positioning
+**/
 .unused {
     position: absolute;
     top: 35px;
@@ -108,24 +132,46 @@
     width: 104px;
     height: 104px;
 
-    z-index: 10;
-
     position: absolute;
     top: -22px;
     left: 0;
 }
-.hex.black .bug-image {
-   filter: invert(100%);
-   -webkit-filter: invert(100%);
+
+.hex, .hex::after, .hex::before {
+    z-index: 5;
+}
+.bug-image {
+    z-index: 10;
+}
+.stack {
+    z-index: 15;
 }
 
-/* Invalid hex tiles that are there for positioning */
-.invisible {
-    visibility: hidden;
+
+/*************************************************
+ * Stacking tiles
+**/
+.stack {
+    display: inline-block;
+
+    background: beige;
+    border: 1px dashed black;
+    border-radius: 5px;
+
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+
+    padding: 2px;
+    min-width: 15px;
+    text-align: center;
 }
 
 
-/**
+
+
+
+/*************************************************
  * Perspective transformations
 **/
 .hive-wrapper {
